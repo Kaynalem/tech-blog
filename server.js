@@ -12,7 +12,7 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-    secret: process.env.SESS_SEC,
+    secret: 'Super secret secret',
     cookie: {// automatically sign out user if idle on page more than 10 minutes
         expires: 10 * 60 * 1000},
     resave: false,
