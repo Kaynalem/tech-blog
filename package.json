@@ -7,6 +7,9 @@
     "test": "jest",
     "start": "node server.js"
   },
+  "engines": {
+    "node": "v12.16.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kaynalem/tech-blog.git"
