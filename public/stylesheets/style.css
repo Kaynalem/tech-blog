@@ -10,15 +10,10 @@
     color: #333;
     }
     
-    /*a {
+    a {
     text-decoration: none;
-    color: #225ca3;
-    font-weight: bold;
+    color: #2e2e2e;
     transition: color .1s;
-    }*/
-    
-    a:hover {
-    color: #3486eb;
     }
     
     .post-list {
