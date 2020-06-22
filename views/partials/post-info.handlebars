@@ -1,14 +1,15 @@
 <article class="post">
-        <div class="title card bg-light mb-3">
+        <div class="title card bg-light">
             <div class="card-header">
                 <a class="card-title" href="/post/{{id}}" target="_blank">{{title}}</a>
             </div>
             <div class="card-body bg-white">
                 <div class="card-text">{{post_content}}</div>
             </div>
-        <div class="meta card-footer">
+        <div class="meta card-footer text-right">
             by {{user.username}} on {{format_date created_at}}
             |
             <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        </div>
     </div>
 </article>

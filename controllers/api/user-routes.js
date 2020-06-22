@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {username: 'user', email: 'user@email.com', password: 'password1234'}
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -74,7 +74,7 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {email: 'user@email.com', password: 'password1234'}
     User.findOne({
     where: {
         email: req.body.email
@@ -102,6 +102,17 @@ router.post('/login', (req, res) => {
         res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
     }); 
+});
+// allow user to logout
+router.post('/logout', withAuth, (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
 });
 
 // PUT /api/users/1
@@ -149,15 +160,6 @@ router.delete('/:id', withAuth, (req, res) => {
     });
 });
 
-router.post('/logout', withAuth, (req, res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    }
-    else {
-        res.status(404).end();
-    }
-});
+
 
 module.exports = router;
